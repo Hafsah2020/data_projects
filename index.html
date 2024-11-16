@@ -95,69 +95,30 @@ http://www.tooplate.com/view/2109-the-card
               </div>
             </section>
 
-             <!-- Section 2 Work (Gallery) -->
-             <section class="tm-section tm-section-2 mx-auto">
-              <div class="grid tm-gallery">
-                <figure class="effect-goliath tm-gallery-item">
-                  <img src="img/01.jpg" alt="Image 1" class="">
-                  <figcaption>
-                    <h2>Geospatial
-                      <span>Analysis</span>
-                    </h2>
-                    <p>Analysis on Southern New Guinea freshwater swamp forest.</p>
-                    <!-- Update the link below to your desired URL -->
-                    <a href="https://hafsah2020.github.io/analysis_on_Southern-_New_Guinea_freshwater_swamp_forest/" target="_blank">View More</a>
-                  </figcaption>
-                </figure>
-                <figure class="effect-goliath tm-gallery-item">
-                  <img src="img/02.jpg" alt="Pretty Girl" class="">
-                  <figcaption>
-                    <h2>Data
-                      <span>Analysis</span>
-                    </h2>
-                    <p>Analysis on progress towards SDG7.</p>
-                    <!-- Update the link below to your desired URL -->
-                    <a href="https://github.com/Hafsah2020/analysis-on-progress_towards_SDG7" target="_blank">View More</a>
-                  </figcaption>
-                </figure>
-                <!-- Repeat this for other items -->
-                <figure class="effect-goliath tm-gallery-item">
-                  <img src="img/03.jpg" alt="Red Flowers" class="">
-                  <figcaption>
-                    <h2>A bunch of
-                      <span>Red Flower</span>
-                    </h2>
-                    <p>Integer pellentesque nisi iaculis sapien.</p>
-                    <!-- Update the link below to your desired URL -->
-                    <a href="https://www.example.com/page3" target="_blank">View More</a>
-                  </figcaption>
-                </figure>
-                <figure class="effect-goliath tm-gallery-item">
-                  <img src="img/04.jpg" alt="Stairs" class="">
-                  <figcaption>
-                    <h2>Thoughtful
-                      <span>Goliath</span>
-                    </h2>
-                    <p>When Goliath comes out, you should run.</p>
-                    <!-- Update the link below to your desired URL -->
-                    <a href="https://www.example.com/page4" target="_blank">View More</a>
-                  </figcaption>
-                </figure>
-                <!-- Add more gallery items as needed -->
-                <figure class="effect-goliath tm-gallery-item">
-                  <img src="img/05.jpg" alt="Stairs" class="">
-                  <figcaption>
-                    <h2>Thoughtful
-                      <span>Goliath</span>
-                    </h2>
-                    <p>When Goliath comes out, you should run.</p>
-                    <!-- Update the link below to your desired URL -->
-                    <a href="https://www.example.com/page5" target="_blank">View More</a>
-                  </figcaption>
-                </figure>
-              </div>
-            </section>
-            
+<!-- Section 2 Work (Gallery) -->
+<section class="tm-section tm-section-2">
+  <h2 class="tm-section-title mb-3 font-weight-bold" style="text-align: left;">My Projects</h2>
+  <div class="tm-projects-container" style="padding: 0 20px;">
+    <div class="tm-project" style="text-align: left; margin-bottom: 40px;">
+      <img src="img\01.jpg" alt="Project 1" style="width: 100%; height: auto; border-radius: 8px;">
+      <h3 class="tm-project-title mt-2">Analysis on Southern New Guinea freshwater swamp forest</h3>
+      <p>This project analyses the Southern New Guinea Freshwater Swamp Forest using geospatial and environmental data.</p>
+      <a href="https://hafsah2020.github.io/analysis_on_Southern-_New_Guinea_freshwater_swamp_forest/" class="tm-link">View Project</a>
+    </div>
+    <div class="tm-project" style="text-align: left; margin-bottom: 40px;">
+      <img src="img\02.jpg" alt="Project 2" style="width: 100%; height: 60%; border-radius: 8px;">
+      <h3 class="tm-project-title mt-2">Analysis on progress towards SDG7</h3>
+      <p>This project is an analysis on global progress toward acheiving all the the set targets towards SDG7.</p>
+      <a href="https://github.com/Hafsah2020/analysis-on-progress_towards_SDG7?tab=readme-ov-file#analysis-on--progress-towards-sdg7" class="tm-link">View Project</a>
+    </div>
+    <!-- <div class="tm-project" style="text-align: left; margin-bottom: 40px;">
+      <img src="img\03.jpg" alt="Project 3" style="width: 100%; height: auto; border-radius: 8px;">
+      <h3 class="tm-project-title mt-2">Geospatial Analysis for Resource Mapping</h3>
+      <p>Applied GIS and machine learning to map natural resources and analyze spatial patterns, enhancing resource management strategies.</p>
+      <a href="#" class="tm-link">View Project</a>
+    </div> -->
+  </div>
+</section>
 
 
             <!-- Section 3 Contact -->
@@ -197,6 +158,31 @@ http://www.tooplate.com/view/2109-the-card
   <script src="js/background.cycle.js"></script>
   <script src="slick/slick.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(track.children);
+    const prevButton = document.querySelector('.control-left');
+    const nextButton = document.querySelector('.control-right');
+    let currentIndex = 0;
+
+    function updateCarousel(index) {
+      const width = items[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${index * width}px)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+      updateCarousel(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+      updateCarousel(currentIndex);
+    });
+
+    // Adjust carousel on resize
+    window.addEventListener('resize', () => updateCarousel(currentIndex));
+  </script>
   <script>
 
     let slickInitDone = false;
@@ -251,7 +237,7 @@ http://www.tooplate.com/view/2109-the-card
         imageUrls: [
           'img/option 4.jpg',
           'img/skills.jpg',
-          'img/photo-04.jpg',
+          'img/works.jpg',
           'img/photo-05.jpg'
         ],
         fadeSpeed: 2000,

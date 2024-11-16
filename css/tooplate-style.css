@@ -137,6 +137,11 @@ a {
   margin-top: 70px;
   max-width: 420px;
 }
+.tm-section-2 {
+  margin-top: 70px;
+  max-width: 575px;
+   
+}
 
 .tm-link:link,
 .tm-link:visited {
@@ -643,3 +648,4 @@ figure.effect-goliath:hover p {
 .tm-static {
   position: static;
 }
+
